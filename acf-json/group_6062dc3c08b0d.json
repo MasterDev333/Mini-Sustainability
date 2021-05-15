@@ -1,0 +1,43 @@
+{
+    "key": "group_6062dc3c08b0d",
+    "title": "Story List Page",
+    "fields": [
+        {
+            "key": "field_6062dbaab9c30",
+            "label": "Benefits",
+            "name": "benefits_list",
+            "type": "wysiwyg",
+            "instructions": "This field is for benefits on the list page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "stories"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1617091918
+}
