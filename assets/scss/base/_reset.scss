@@ -1,0 +1,66 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  background-color: $white;
+  color: black;
+  font-family: "CoreSansC", sans-serif;
+  overflow: hidden;
+  @include bodyText("normal");
+
+  @include mq("desktop") {
+    cursor: none;
+  }
+}
+.is-transitioning {
+  pointer-events: none;
+  cursor: progress;
+  .cursor,
+  .cursor-follower {
+    display: none;
+  }
+}
+body {
+  &.mobile {
+    .cursor,
+    .cursor-follower {
+      display: none !important;
+    }
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+*:focus {
+  outline: none;
+}
+
+a,
+button,
+.btn {
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+scroll {
+  width: 100vw;
+  height: 100vh;
+}

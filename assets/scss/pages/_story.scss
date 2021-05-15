@@ -1,0 +1,514 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the homepage.
+// -----------------------------------------------------------------------------
+.hexagon-image {
+  position: absolute;
+  max-width: 124px;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.single-stories {
+  .link-scroll-down {
+    position: absolute;
+    left: 50%;
+    bottom: 120px;
+    transform: translateX(-50%);
+    animation: 1s infinite alternate scroll-down ease-in-out;
+    z-index: 10;
+    svg path {
+      transition: all 0.3s ease-in-out;
+    }
+    &:hover {
+      svg path {
+        fill: $primary;
+        fill-opacity: 1;
+      }
+    }
+    @media (min-width: 1200px) and (min-height: 500px) and (max-height: 820px) {
+      top: calc(100vh - 120px);
+      bottom: auto;
+    }
+    // @media (min-height: 820px) {
+    // }
+  }
+}
+
+.section-banner {
+  position: relative;
+  &__img {
+    height: 280px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    @include mq("tablet") {
+      height: 320px;
+    }
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  &__content {
+    padding: 50px 0 100px;
+    @include mq("tablet") {
+      padding: 100px 0 150px;
+      .container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+      }
+    }
+    .left {
+      max-width: 500px;
+    }
+    .right {
+      display: none;
+      border-left: 1px solid $primary;
+      @include mq("tablet") {
+        display: block;
+        padding: 10px 40px;
+        flex-shrink: 0;
+      }
+      @include mq("tablet-wide") {
+        padding: 20px 40px;
+      }
+      .partners-title {
+        font-size: 14px;
+        line-height: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.015em;
+      }
+    }
+  }
+  &__title {
+    margin-bottom: 150px;
+    font-weight: 400;
+    @include mq("tablet") {
+      margin-bottom: 50px;
+    }
+    strong {
+      display: block;
+    }
+  }
+  &__desc {
+    display: none;
+    color: rgba($black, 0.6);
+    @include mq("tablet") {
+      display: block;
+    }
+  }
+}
+@keyframes scroll-down {
+  from {
+    transform: translate(-50%, -10px);
+  }
+  to {
+    transform: translate(-50%, 10px);
+  }
+}
+
+.flexible-section {
+  position: relative;
+  padding: 120px 20px;
+  .hexagon-image {
+    top: -32px;
+    transform: translate(-50%, -50%);
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: calc(100%);
+    background-color: $primary;
+  }
+}
+
+.has-hexagon {
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 34px;
+    height: 40px;
+    background: url("../images/icon_hexagon.svg") no-repeat center;
+    background-size: contain;
+  }
+}
+
+.module {
+  position: relative;
+  border: 1px solid $primary;
+  margin: 0 auto 120px;
+  padding: 80px 20px 40px;
+  background-color: white;
+  z-index: 1;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  @include mq("tablet") {
+    padding: 80px 50px 64px;
+    margin: 0 auto 240px;
+  }
+  &.no-border {
+    padding: 0;
+    border: none;
+  }
+  h4 {
+    color: $secondary;
+    text-transform: uppercase;
+    margin-bottom: 13px;
+  }
+}
+.project-partners-module {
+  @include mq("tablet") {
+    display: none;
+  }
+  .link-external {
+    line-height: 24px;
+  }
+}
+.text-module,
+.imagery-text-module {
+  max-width: 670px;
+}
+.text-module {
+  &__body {
+    p {
+      margin-bottom: 16px;
+    }
+  }
+}
+.imagery-text-module {
+  position: relative;
+  &__contents {
+    p {
+      margin-bottom: 16px;
+    }
+    img {
+      display: block;
+      max-width: 100px;
+      @include mq("tablet") {
+        display: none;
+      }
+
+      @include orientation("landscape") {
+        @include mq("tablet", "max") {
+          display: block;
+        }
+      }
+    }
+  }
+  &__image {
+    display: none;
+    position: absolute;
+    top: 50%;
+    max-width: 150px;
+    z-index: 1;
+    &.position {
+      &-left {
+        left: 33px;
+        transform: translate(-100%, -50%);
+        &.position-top {
+          top: 16px;
+          transform: translate(-100%, 0);
+        }
+        &.position-bottom {
+          top: auto;
+          bottom: 16px;
+          transform: translate(-100%, 0);
+        }
+      }
+      &-right {
+        right: -114px;
+        transform: translate(0, -50%);
+        &.position-top {
+          top: 16px;
+          transform: translate(0, 0);
+        }
+        &.position-bottom {
+          top: auto;
+          bottom: 16px;
+          transform: translate(0, 0);
+        }
+      }
+    }
+    @include mq("tablet") {
+      display: block;
+    }
+    @include orientation("landscape") {
+      @include mq("tablet", "max") {
+        display: none;
+      }
+    }
+  }
+}
+
+.list-text-module {
+  max-width: 500px;
+  ul {
+    padding-left: 20px;
+    list-style: disc;
+    li {
+      @include bodyText();
+    }
+  }
+}
+.location-module,
+.call-actions-module {
+  h4 {
+    margin-bottom: 9px;
+  }
+  h2 {
+    font-weight: 400;
+    color: $secondary;
+  }
+}
+.location-module {
+  max-width: 330px;
+  @include mq("tablet") {
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+}
+
+.call-actions-module,
+.newsletter-module {
+  max-width: 500px;
+  h2 {
+    margin-bottom: 56px;
+    @include mq("tablet") {
+      margin-bottom: 40px;
+    }
+  }
+  .btn-external {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 16px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.newsletter-module {
+  border-color: $primary;
+  h4 {
+    margin-bottom: 9px;
+    color: $primary;
+  }
+  h2 {
+    color: $primary;
+    font-weight: 400;
+  }
+  .btn-external {
+    background-color: $primary;
+    color: $white;
+  }
+}
+
+.contacts-module {
+  max-width: 500px;
+  h4 {
+    margin-bottom: 40px;
+  }
+  .contact {
+    margin-bottom: 40px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &-mail {
+      display: inline-block;
+      margin-top: 8px;
+    }
+  }
+}
+
+.download-module {
+  text-align: center;
+  .download {
+    position: relative;
+    margin: auto;
+    display: inline-block;
+    width: 152px;
+    height: 176px;
+    &:hover {
+      .download-bg {
+        transform: scale(1.1);
+        path {
+          fill: $secondary;
+          stroke: $secondary;
+        }
+      }
+    }
+    &-bg {
+      transition: transform 0.3s ease-in-out;
+      will-change: transform;
+      path {
+        transition: all 0.3s ease-in-out;
+      }
+    }
+    &-link {
+      position: absolute;
+      padding: 40px 35px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      &__icon {
+        display: block;
+        margin-bottom: 16px;
+      }
+      &__text {
+        color: white;
+      }
+    }
+  }
+}
+
+.image-captions-module {
+  text-align: center;
+  .image {
+    position: relative;
+    display: inline-block;
+    max-width: 500px;
+    &-caption {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      padding: 16px;
+      background-color: white;
+      color: rgba($black, 0.6);
+      font-size: 12px;
+      line-height: 12px;
+    }
+  }
+  &.image-carousel {
+    width: 280px;
+    @include mq("tablet") {
+      width: 500px;
+    }
+    .image-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .image {
+      text-align: center;
+      @include mq("tablet") {
+        height: 400px;
+      }
+      img {
+        margin: auto;
+        @include mq("tablet") {
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+.share-module {
+  max-width: 300px;
+  margin-bottom: 60px;
+  padding: 24px 36px 32px;
+  text-align: center;
+  p {
+    margin-bottom: 8px;
+  }
+  .social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .social-link {
+      margin: 0 8px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+  @include mq("tablet") {
+    display: none;
+  }
+}
+
+.solution-section {
+  position: relative;
+  padding: 120px 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($green_dark, 0.4);
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    transform: translateX(-50%);
+    background-color: white;
+  }
+  .module {
+    border: none;
+  }
+  .has-hexagon::before {
+    background-image: url("../images/icon_hexagon_white.svg");
+  }
+}
+
+.video-module {
+  max-width: 670px;
+  .embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe,
+  .embed-container object,
+  .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.footer-section {
+  padding: 100px 20px 60px;
+  background-color: #eaf0f2;
+  .hexagon-image {
+    top: 3.1px;
+    transform: translate(-50%, -50%);
+  }
+  .has-hexagon::before {
+    background-image: url("../images/icon_hexagon_footer.svg");
+  }
+  @include mq("tablet") {
+    padding: 135px 20px 65px;
+  }
+  .module {
+    background-color: #eaf0f2;
+  }
+}

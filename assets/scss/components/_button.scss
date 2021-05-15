@@ -1,0 +1,111 @@
+.btn {
+  position: relative;
+  color: $black;
+  cursor: pointer;
+  text-align: center;
+  transition: color 0.2s ease-in-out 0.1s;
+  overflow: hidden;
+  z-index: 1;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: $green_dark;
+    transition: width 0.3s ease-in-out;
+    z-index: -1;
+  }
+  &:hover {
+    &::after {
+      width: 100%;
+    }
+  }
+}
+.btn-internal {
+  padding: 24px 50px;
+  border: 1px solid $black;
+  border-radius: 50px;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  @include mq("tablet") {
+    border-width: 2px;
+    border-radius: 70px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  &::after {
+    background-color: $black;
+  }
+  &:hover {
+    color: $white;
+  }
+}
+.btn-external {
+  display: block;
+  padding: 18px 20px;
+  background-color: $secondary;
+  border-radius: 70px;
+  font-size: 14px;
+  line-height: 16px;
+  max-width: 280px;
+  color: $black;
+  text-align: center;
+  &:hover {
+    color: $white;
+    svg path {
+      fill: $white;
+    }
+  }
+  svg {
+    margin-left: 8px;
+    display: none;
+    path {
+      transition: fill 0.3s ease-in-out;
+      will-change: fill;
+    }
+  }
+
+  @include mq("tablet") {
+    padding: 17px 20px;
+    border-radius: 50px;
+    line-height: 14px;
+    max-width: none;
+    svg {
+      display: inline-block;
+    }
+  }
+}
+.link-copy {
+  font-size: 16px;
+  line-height: 24px;
+  color: $primary;
+  text-decoration: underline;
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: $secondary;
+  }
+}
+.link-external {
+  margin: 20px 0;
+  display: block;
+  font-size: 16px;
+  line-height: 12px;
+  color: $black;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  svg {
+    margin-left: 8px;
+    path {
+      transition: 0.3s fill ease-in-out;
+    }
+  }
+  &:hover {
+    color: $secondary;
+    svg path {
+      fill: $secondary;
+    }
+  }
+}

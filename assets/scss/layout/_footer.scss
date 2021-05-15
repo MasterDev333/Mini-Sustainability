@@ -1,0 +1,90 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+// Footer styles
+footer {
+  position: relative;
+  .hexagon-image {
+    top: 0;
+    transform: translate(-50%, -50%);
+  }
+  .next-section {
+    color: white;
+    .container {
+      position: relative;
+      text-align: center;
+      @include mq("tablet") {
+        text-align: left;
+      }
+    }
+    h4 {
+      margin-bottom: 30px;
+      text-align: left;
+      text-transform: uppercase;
+      @include mq("tablet") {
+        margin-bottom: 37px;
+      }
+    }
+    h2 {
+      margin-bottom: 90px;
+      font-weight: 400;
+      text-align: left;
+      @include mq("tablet") {
+        margin-bottom: 0;
+        max-width: 420px;
+      }
+      strong {
+        display: block;
+      }
+    }
+    .btn-internal {
+      margin: auto;
+      border-color: white;
+      color: white;
+      overflow: visible;
+      @include mq("tablet") {
+        position: absolute;
+        top: 50%;
+        right: 30px;
+        transform: translateY(-50%);
+      }
+      &::after {
+        content: none;
+      }
+      &::before {
+        position: absolute;
+        content: "";
+        bottom: 0%;
+        left: 50%;
+        width: 1px;
+        height: 200px;
+        transform: translate(-50%, 100%);
+        background-color: white;
+        transition: height 0.3s ease-in-out;
+      }
+      &:hover {
+        &::before {
+          height: 0;
+        }
+      }
+    }
+    &__content {
+      padding: 80px 20px 64px;
+      overflow: hidden;
+      @include mq("tablet") {
+        padding: 95px 0px;
+      }
+    }
+    &__img {
+      height: 200px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      overflow: hidden;
+      @include mq("tablet") {
+        height: 224px;
+      }
+    }
+  }
+}

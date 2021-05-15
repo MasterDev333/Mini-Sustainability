@@ -1,0 +1,161 @@
+.page-list {
+  background-color: $green_dark;
+  color: white;
+
+  main {
+    margin: auto;
+    max-width: 1000px;
+  }
+  .table {
+    padding: 150px 40px 40px;
+    @include mq("tablet") {
+      padding: 200px 40px 40px;
+    }
+    .thead {
+      display: none;
+      margin-bottom: 80px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      @include mq("tablet") {
+        display: grid;
+        gap: 50px;
+      }
+      .th {
+        @include heading4();
+        text-transform: uppercase;
+      }
+    }
+    .tbody {
+      .tr {
+        position: relative;
+        display: grid;
+        padding: 50px 0;
+        border-top: 1px solid white;
+        @include mq("tablet") {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .avatar-link {
+          position: absolute;
+          top: 0;
+          right: 0;
+          transform: translateY(-50%);
+          img {
+            max-width: 70px;
+            max-height: 70px;
+          }
+          @include mq("tablet") {
+            left: 0;
+            right: auto;
+          }
+        }
+        .td {
+          padding: 0 10px;
+          &:first-child {
+            padding-left: 0;
+          }
+          &:last-child {
+            padding-right: 0;
+          }
+          @include mq("tablet") {
+            padding: 0 25px;
+          }
+          .page-link {
+            color: white;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+          .title {
+            margin-bottom: 45px;
+            @include mq("tablet") {
+              margin-bottom: 0;
+            }
+            strong {
+              display: block;
+            }
+          }
+          &.td-flex {
+            display: grid;
+            grid-template-columns: 100px auto;
+            align-items: flex-start;
+            @include mq("tablet") {
+              display: block;
+            }
+          }
+          &.td-benefits {
+            display: none;
+            @include mq("tablet") {
+              display: block;
+            }
+          }
+          &-title {
+            @include bodyText("small");
+            text-transform: uppercase;
+            font-weight: 500;
+            @include mq("tablet") {
+              display: none;
+            }
+          }
+          .benefits {
+            @include bodyText("small");
+            li {
+              display: block;
+              margin-bottom: 10px;
+            }
+          }
+          .partners-link {
+            display: block;
+            margin-bottom: 10px;
+            @include bodyText("small");
+            color: white;
+          }
+        }
+      }
+    }
+    .tfooter {
+      margin: auto;
+      margin-top: 100px;
+      margin-bottom: 50px;
+      @include mq("tablet") {
+        margin-top: 140px;
+      }
+      .partners {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &-link {
+          &:first-child {
+            max-width: 96px;
+            margin-right: 20px;
+            @include mq("tablet") {
+              max-width: 100%;
+              margin-right: 0;
+            }
+          }
+        }
+      }
+      .footer-bar {
+        margin-top: 35px;
+        @include mq("tablet") {
+          display: flex;
+          align-items: center;
+        }
+        p,
+        a {
+          @include bodyText(small);
+          color: white;
+        }
+        .page-link {
+          display: block;
+          margin: 8px 0;
+          @include mq("tablet") {
+            margin: 0 16px;
+            padding: 0 16px;
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+          }
+        }
+      }
+    }
+  }
+}

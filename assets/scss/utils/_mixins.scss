@@ -1,0 +1,119 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if ($type == min) {
+      $width: $width + 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+@mixin orientation($direction) {
+  $orientation-landscape: "(orientation:landscape)";
+  $orientation-portrait: "(orientation:portrait)";
+
+  @if $direction == landscape {
+    @media #{$orientation-landscape} {
+      @content;
+    }
+  }
+  @if $direction == portrait {
+    @media #{$orientation-portrait} {
+      @content;
+    }
+  }
+}
+
+@mixin heading1() {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 40px;
+  @include mq("tablet") {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+@mixin heading2() {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  @include mq("tablet") {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+@mixin heading3() {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  @include mq("tablet") {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+@mixin heading4() {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 12px;
+  letter-spacing: 1.5px;
+}
+@mixin heading5() {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  @include mq("tablet") {
+    font-size: 20px;
+  }
+}
+
+@mixin bodyText($size: normal) {
+  font-size: 16px;
+  line-height: 24px;
+  @if $size == large {
+    font-size: 16px;
+    line-height: 24px;
+    @include mq("tablet") {
+      font-size: 20px;
+      line-height: 32px;
+    }
+  }
+  @if $size == small {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@mixin text-opacity() {
+  &:hover {
+    opacity: 0.7;
+    transition: all ease-in-out 0.3s;
+  }
+}
+@mixin text-transition($dir: "y") {
+  @if ($dir == "y") {
+    transition: transform 0.5s cubic-bezier(0.405, 0.005, 0, 1);
+    transform: translateY(110%) translateZ(0);
+    opacity: 0;
+  }
+}
+@mixin text-transition-effect($dir: "y") {
+  @if ($dir == "y") {
+    transform: translateY(0) translateZ(0);
+    transition: transform 1.5s cubic-bezier(0.405, 0.005, 0, 1);
+    opacity: 1;
+    transition-delay: 0.15s;
+  }
+}
+@mixin pseudo-elements() {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
